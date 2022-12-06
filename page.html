@@ -1,0 +1,286 @@
+<!doctype html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <style>
+            body {
+                box-sizing: border-box;
+                margin: 0;
+                background-color: rgb(0, 0, 51);
+                color: beige;
+            }
+            img {
+                display: block;
+                max-width: 100%;
+                margin: auto;
+            }
+            .header {
+                padding: 50px 0;
+                text-align: center;
+                font-size: 30px;
+            }
+            .hnav {
+                background-color: rgb(0, 20, 109);
+            }  
+            .hnav::after {
+                content: "";
+                display: table;
+                clear: both;
+            } 
+            .hlink {
+                background-color: rgb(0, 245, 94);
+                float: left;
+                padding: 15px 30px;
+                text-decoration: none;
+                transition: .5s;
+                box-shadow: 3px 3px 6px 3px purple;
+            } 
+            .hlink:hover {
+                background-color: blue;
+                color: red;
+                box-shadow: 1px 1px 3px 1px rgb(170, 0, 170);
+            }
+            .container {
+                display: flex;
+                flex-flow: row nowrap;
+                clear: both;
+                margin-top: 70px;
+                margin-left: 15px;   
+            }
+            .main {
+                flex: 70%;
+                border-left: 1px solid purple;
+                border-right: 1px solid purple;
+                text-align: center;
+            }
+            .lside {
+                flex: 15%;
+                text-align: center;
+            }
+            .rside {
+                flex: 15%;
+                text-align: center;
+            }
+            .footer {
+                border-top: 1px solid purple;
+                text-align: center;
+                font-size: 30px;
+            }
+            .fnav {
+                font-size: 20px;
+                color: white;
+                display: inline-block;
+                margin: 50px;
+            }
+            .flink {
+                display: block;
+                color: aqua;
+                text-decoration: none;
+            }
+            .flink:hover {
+                color: white;
+                text-decoration: dashed;
+                font-size: 25px;
+            }
+            @media all and (max-width: 1200px) {
+                body {
+                    background-color: rgba(0, 0, 53, 0.9);
+                }
+
+            }
+            @media all and (max-width: 992px) {
+                body {
+                    background-color: rgba(0, 0, 53, 0.75);
+                }
+                .rside {
+                    display: none;
+                }
+                .fnav {
+                    margin-right: 15px;
+                    margin-left: 15px;
+                    font-size: 16px;
+                }
+                
+            }
+            @media all and (max-width: 768px) {
+                body {
+                    background-color: rgba(0, 0, 255, 0.877);
+                }
+                .lside {
+                    display: none;
+                }
+                .fnav {
+                    margin-right: 8px;
+                    margin-left: 8px;
+                }
+                
+            }
+            @media all and (max-width: 600px) {
+                body {
+                    background-color: rgba(0, 0, 156, 0.808);
+                }
+                .hlink {
+                    padding: 10px 20px;
+                }  
+                .fnav{
+                    margin-right: 45px;
+                    margin-left: 45px;
+                }  
+            }
+            @media all and (max-width: 400px) {
+                body {
+                    background-color: rgb(0, 0, 214);
+                }
+                
+            }
+            .ref {
+                display: block;
+                position: absolute;
+                top: 15px;
+                left: 25px;
+                background-color: rgb(0, 141, 141);
+                padding: 11px 15px;
+                border: 2px solid greenyellow;
+            }
+            .ref:hover {
+                background-color: blue;
+                color: red;
+                cursor: pointer;
+            }
+            .refhid {
+                display: none;
+                position: absolute;
+                top: 30px;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.849);
+            }
+            .reflink {
+                display: block;
+                text-decoration: none;     
+            }
+            .close { 
+                position: absolute;
+                top: 15px;
+                right: 25px;
+                cursor: pointer;
+            }
+
+
+        </style>
+    </head>
+    <body id="bodd">
+        <div class="header">
+            <div class="ref" onclick="x();">reference</div>
+            <div class="refhid" id="refhid">
+                <p>js reference</p>
+                <a href="javascript:" class="reflink">reference link</a>
+                <a href="javascript:" class="reflink">reference link</a>
+                <a href="javascript:" class="reflink">reference link</a>
+                <a href="javascript:" class="reflink">reference link</a>
+                <a href="javascript:" class="reflink">reference link</a>
+                <a href="javascript:" class="reflink">reference link</a>
+                <div class="close" id="close" onclick="y();">&times;</div>
+            </div>
+            this is a header!
+        </div>
+        <div class="hnav">
+            <a href="javascript:" class="hlink">link</a>
+            <a href="javascript:" class="hlink">link</a>
+            <a href="javascript:" class="hlink">link</a>
+            <a href="javascript:" class="hlink">link</a>
+            <a href="javascript:" class="hlink">link</a>
+            <a href="javascript:" class="hlink">link</a>
+            <a href="javascript:" class="hlink" style="float: right;" id="colorr">change color</a>
+        </div>
+        <div class="container">
+            <div class="lside">
+                <p>this is the left side!</p>
+                <img src="img/border.png" alt="border">
+                <p>this is the left side!</p>
+                <img src="img/border.png" alt="border">
+            </div>
+            <div class="main">
+                <p>this is the main content!</p>
+                <img src="img/forest.jpg">
+                <p>this is the main content!</p>
+                <img src="img/forest.jpg">
+                <p>this is the main content!</p>
+                <img src="img/forest.jpg">
+            </div>
+            <div class="rside">
+                <p>this is the right side!</p>
+                <img src="img/border.png" alt="border">
+                <p>this is the right side!</p>
+                <img src="img/border.png" alt="border">
+                <p>this is the right side!</p>
+                <img src="img/border.png" alt="border">
+            </div>
+        </div> 
+        <div class="footer">
+            <div class="fnav">
+                <p>link to xxxxxxxx</p>
+                <a href="javascript:" class="flink">footer link</a>
+                <a href="javascript:" class="flink">footer link</a>
+                <a href="javascript:" class="flink">footer link</a>
+                <a href="javascript:" class="flink">footer link</a>
+                <a href="javascript:" class="flink">footer link</a>
+                <a href="javascript:" class="flink">footer link</a>
+                <a href="javascript:" class="flink">footer link</a>
+            </div>
+            <div class="fnav">
+                <p>link to yyyyyyyyy</p>
+                <a href="javascript:" class="flink">footer link</a>
+                <a href="javascript:" class="flink">footer link</a>
+                <a href="javascript:" class="flink">footer link</a>
+                <a href="javascript:" class="flink">footer link</a>
+                <a href="javascript:" class="flink">footer link</a>
+                <a href="javascript:" class="flink">footer link</a>
+                <a href="javascript:" class="flink">footer link</a>
+            </div>
+            <div class="fnav">
+                <p>link to zzzzzzzzz</p>
+                <a href="javascript:" class="flink">footer link</a>
+                <a href="javascript:" class="flink">footer link</a>
+                <a href="javascript:" class="flink">footer link</a>
+                <a href="javascript:" class="flink">footer link</a>
+                <a href="javascript:" class="flink">footer link</a>
+                <a href="javascript:" class="flink">footer link</a>
+                <a href="javascript:" class="flink">footer link</a>
+            </div>
+            <div class="fnav">
+                <p>link to whatever!</p>
+                <a href="javascript:" class="flink">footer link</a>
+                <a href="javascript:" class="flink">footer link</a>
+                <a href="javascript:" class="flink">footer link</a>
+                <a href="javascript:" class="flink">footer link</a>
+                <a href="javascript:" class="flink">footer link</a>
+                <a href="javascript:" class="flink">footer link</a>
+                <a href="javascript:" class="flink">footer link</a>
+            </div>
+        </div>  
+        <script>
+            let ref = document.getElementById('refhid');
+            let clo = document.getElementById('close');
+            function x() {
+                ref.style.display = "block";
+            }
+            function y() {
+                ref.style.display = "none";
+            }
+
+            const col = document.getElementById('colorr');
+            const bo = document.getElementById('bodd');
+            col.onclick = function(){
+                if (bo.style.background == 'aqua'){
+                    bo.style.background = 'rgb(0, 0, 51)';
+                    bo.style.color = 'white';
+                }
+                else {
+                    bo.style.background = 'aqua';
+                    bo.style.color = 'black';
+                }
+            }
+        </script>  
+    </body>
+</html>
